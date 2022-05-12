@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import './App.css';
 
@@ -7,15 +7,14 @@ function App() {
   const [topRight, setTopRight] = useState(0);
   const [bottomRight, setBottomRight] = useState(0);
   const [bottomLeft, setBottomLeft] = useState(0);
-  const [borderClipBoard, setBorderClipBoard] = useState('border-radius: 0px 0px 0px 0px');
 
-  const fancyBoard = document.querySelector('.fancy-board') as HTMLElement;
+  const copied = {copied: false};
 
-  const handleInputChange = (e: any) => {
-    
+  const handleInputChange = (e: any) => {    
+    console.log(e.target.value);
     // console.log(e.target.className);
     const targetValue = parseInt(e.target.value);
-
+    
     if(e.target.value !== ''){
       if(e.target.className === "top-left"){
         setTopLeft(targetValue);
@@ -29,13 +28,25 @@ function App() {
       if(e.target.className === "bottom-left"){
         setBottomLeft(targetValue);
       }
+    } else {
+      if(e.target.className === "top-left"){
+        setTopLeft(0);
+      }
+      if(e.target.className === "top-right"){
+        setTopRight(0);
+      }
+      if(e.target.className === "bottom-right"){
+        setBottomRight(0);
+      }
+      if(e.target.className === "bottom-left"){
+        setBottomLeft(0);
+      }
     }
-    
-    setBorderClipBoard(`border-radius: ${topLeft}px ${topRight}px ${bottomRight}px ${bottomLeft}px`)
   }
 
-  const CopyToClipBoard = () => {
-    let copiedText = borderClipBoard.selectRange(0, 99999);
+  
+  const copyToClipBoard = () => {
+    navigator.clipboard.writeText(`border-radius: ${topLeft}px ${topRight}px ${bottomRight}px ${bottomLeft}px`);
   }
 
   return (
@@ -72,7 +83,8 @@ function App() {
         </div>
       </div>
       <div className="clip-board">
-        <input type="text" disabled value={borderClipBoard} style={{width: "250px", textAlign: 'center'}} onClick={CopyToClipBoard}/>
+        <p style={{color: 'white'}}>{`border-radius: ${topLeft}px ${topRight}px ${bottomRight}px ${bottomLeft}px`}</p>
+        <button onClick={copyToClipBoard}>Copy to clipboard</button>
       </div>
     </div>
   );
