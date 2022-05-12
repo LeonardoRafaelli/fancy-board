@@ -7,14 +7,11 @@ function App() {
   const [topRight, setTopRight] = useState(0);
   const [bottomRight, setBottomRight] = useState(0);
   const [bottomLeft, setBottomLeft] = useState(0);
-
-  const copied = {copied: false};
+  const [copied , setCopied] = useState(false);
 
   const handleInputChange = (e: any) => {    
-    console.log(e.target.value);
-    // console.log(e.target.className);
+
     const targetValue = parseInt(e.target.value);
-    
     if(e.target.value !== ''){
       if(e.target.className === "top-left"){
         setTopLeft(targetValue);
@@ -47,6 +44,7 @@ function App() {
   
   const copyToClipBoard = () => {
     navigator.clipboard.writeText(`border-radius: ${topLeft}px ${topRight}px ${bottomRight}px ${bottomLeft}px`);
+    setCopied(true);
   }
 
   return (
@@ -84,7 +82,8 @@ function App() {
       </div>
       <div className="clip-board">
         <p style={{color: 'white'}}>{`border-radius: ${topLeft}px ${topRight}px ${bottomRight}px ${bottomLeft}px`}</p>
-        <button onClick={copyToClipBoard}>Copy to clipboard</button>
+          <button onClick={copyToClipBoard}>Copy to clipboard</button>
+          <p style={{color: 'white'}}>{copied ? "Copied!" : ""}</p>
       </div>
     </div>
   );

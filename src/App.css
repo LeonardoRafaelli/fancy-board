@@ -15,7 +15,7 @@
 }
 
 .square{
-  padding: 2px;
+  padding: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,9 +37,11 @@
   align-items: center;
 }
 
-.clip-board p{
+.clip-board button{
   cursor: pointer;
+}
+
+.clip-board p{
   width: 350px;
   text-align: center;
-  cursor: pointer;
 }
