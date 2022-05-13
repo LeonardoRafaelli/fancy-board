@@ -78,7 +78,6 @@ function App() {
         type="number"
         className="bottom-left"
         placeholder='bottom-left'
-        onChange={(e: any) => {handleInputChange(e)}}
         disabled
         />
         <input className='bottom-left' type="range" value={left} onChange={(e: any) => {handleInputChange(e)}}/>
