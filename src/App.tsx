@@ -3,10 +3,10 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [topLeft, setTopLeft] = useState(0);
-  const [topRight, setTopRight] = useState(0);
-  const [bottomRight, setBottomRight] = useState(0);
-  const [bottomLeft, setBottomLeft] = useState(0);
+  const [top, setTopLeft] = useState(0);
+  const [right, setTopRight] = useState(0);
+  const [bottom, setBottomRight] = useState(0);
+  const [left, setBottomLeft] = useState(0);
   const [copied , setCopied] = useState(false);
 
   const handleInputChange = (e: any) => {    
@@ -43,7 +43,7 @@ function App() {
 
   
   const copyToClipBoard = () => {
-    navigator.clipboard.writeText(`border-radius: ${topLeft}px ${topRight}px ${bottomRight}px ${bottomLeft}px`);
+    navigator.clipboard.writeText(`border-radius: ${top}px ${right}px ${bottom}px ${left}px`);
     setCopied(true);
   }
 
@@ -54,34 +54,42 @@ function App() {
         type="number"
         className="top-left"
         placeholder='top-left'
-        onChange={(e) => {handleInputChange(e)}}
+        onChange={(e: any) => {handleInputChange(e)}}
+        disabled
         />
+        <input className='top-left' type="range" value={top} onChange={(e: any) => {handleInputChange(e)}} />
         <input
         type="number"
         className="top-right"
         placeholder='top-right'
-        onChange={(e) => {handleInputChange(e)}}
+        onChange={(e: any) => {handleInputChange(e)}}
+        disabled
         />
+        <input className='top-right' type="range" value={right} onChange={(e: any) => {handleInputChange(e)}}/>
         <input
         type="number"
         className="bottom-right"
         placeholder='bottom-right'
-        onChange={(e) => {handleInputChange(e)}}
+        onChange={(e: any) => {handleInputChange(e)}}
+        disabled
         />
+        <input className='bottom-right' type="range" value={bottom} onChange={(e: any) => {handleInputChange(e)}}/>
         <input
         type="number"
         className="bottom-left"
         placeholder='bottom-left'
-        onChange={(e) => {handleInputChange(e)}}
+        onChange={(e: any) => {handleInputChange(e)}}
+        disabled
         />
+        <input className='bottom-left' type="range" value={left} onChange={(e: any) => {handleInputChange(e)}}/>
       </div>
       <div className="square">
-        <div className="fancy-board" style={{borderTopLeftRadius: topLeft, borderTopRightRadius: topRight, borderBottomRightRadius: bottomRight, borderBottomLeftRadius: bottomLeft}}>
+        <div className="fancy-board" style={{borderTopLeftRadius: `${top}%`,  borderTopRightRadius: `${right}%`, borderBottomRightRadius: `${bottom}%`, borderBottomLeftRadius: `${left}%`}}>
 
         </div>
       </div>
       <div className="clip-board">
-        <p style={{color: 'white'}}>{`border-radius: ${topLeft}px ${topRight}px ${bottomRight}px ${bottomLeft}px`}</p>
+        <p style={{color: 'white'}}>{`border-radius: ${top}% ${100-top}% ${bottom}% ${100-bottom}% / ${100-left}% ${right}% ${100-right}% ${left}%`}</p>
           <button onClick={copyToClipBoard}>Copy to clipboard</button>
           <p style={{color: 'white'}}>{copied ? "Copied!" : ""}</p>
       </div>

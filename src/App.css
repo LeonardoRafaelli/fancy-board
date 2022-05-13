@@ -42,6 +42,24 @@
 }
 
 .clip-board p{
-  width: 350px;
+  width: 500px;
   text-align: center;
+}
+
+
+
+
+
+/* ----- */
+
+.top-left {
+  width: 200px;
+}
+
+.top-right{
+  transform: rotate(180deg);
+}
+
+.bottom-right{
+  transform: rotate(180deg);
 }
