@@ -52,14 +52,25 @@
 
 /* ----- */
 
-.top-left {
+.square-container{
+  display: flex;
+}
+
+.left{
+  width: 200px;
+  transform: rotate(-90deg);
+}
+
+.right{
+  width: 200px;
+  transform: rotate(90deg);
+}
+
+.top {
   width: 200px;
 }
 
-.top-right{
-  transform: rotate(180deg);
-}
-
-.bottom-right{
+.bottom{
+  width: 200px;
   transform: rotate(180deg);
 }
