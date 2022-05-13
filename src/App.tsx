@@ -49,13 +49,7 @@ function App() {
 
   return (
     <div className="screen">
-      <div className="border-values">
-
         <input className='top' type="range" value={top} onChange={(e: any) => {handleInputChange(e)}} />
-
-
-
-      </div>
       <div className="square-container">
         <input className='left' type="range" value={left} onChange={(e: any) => {handleInputChange(e)}}/>
         <div className="square">

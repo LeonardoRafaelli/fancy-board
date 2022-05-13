@@ -8,12 +8,6 @@
   background-color: rgb(41, 40, 40);
 }
 
-.border-values{
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 50px;
-}
-
 .square{
   padding: 4px;
   display: flex;
