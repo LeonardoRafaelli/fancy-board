@@ -43,7 +43,7 @@ function App() {
 
   
   const copyToClipBoard = () => {
-    navigator.clipboard.writeText(`border-radius: ${top}px ${right}px ${bottom}px ${left}px`);
+    navigator.clipboard.writeText(`border-radius: ${top}% ${100-top}% ${bottom}% ${100-bottom}% / ${100-left}% ${right}% ${100-right}% ${left}%`);
     setCopied(true);
   }
 
@@ -51,13 +51,17 @@ function App() {
     <div className="screen">
         <input className='top' type="range" value={top} onChange={(e: any) => {handleInputChange(e)}} />
       <div className="square-container">
-        <input className='left' type="range" value={left} onChange={(e: any) => {handleInputChange(e)}}/>
+        <div className="lateral-range-inputs">
+          <input className='left' type="range" value={left} onChange={(e: any) => {handleInputChange(e)}}/>
+        </div>
         <div className="square">
           <div className="fancy-board" style={{borderTopLeftRadius: `${top}%`,  borderTopRightRadius: `${right}%`, borderBottomRightRadius: `${bottom}%`, borderBottomLeftRadius: `${left}%`}}>
 
           </div>
        </div>
-        <input className='right' type="range" value={right} onChange={(e: any) => {handleInputChange(e)}}/>
+       <div className="lateral-range-inputs">
+          <input className='right' type="range" value={right} onChange={(e: any) => {handleInputChange(e)}}/>
+       </div>
       </div>
         <input className='bottom' type="range" value={bottom} onChange={(e: any) => {handleInputChange(e)}}/>
       <div className="clip-board">

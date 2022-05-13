@@ -68,3 +68,8 @@
   width: 200px;
   transform: rotate(180deg);
 }
+
+.lateral-range-inputs{
+  display: flex;
+  
+}
