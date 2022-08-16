@@ -52,15 +52,15 @@
 
 .left{
   width: 200px;
-  transform: rotate(-90deg);
+  margin-top: 0.5rem;
 }
 
 .right{
   width: 200px;
-  transform: rotate(90deg);
+  margin-bottom: 0.5rem;
 }
 
-.top {
+.top{
   width: 200px;
 }
 
@@ -69,7 +69,16 @@
   transform: rotate(180deg);
 }
 
-.lateral-range-inputs{
+.lateral-range-inputs:nth-child(1){
   display: flex;
-  
+  justify-content: center;
+  align-items: flex-start;
+  transform: rotate(90deg);
+}
+
+.lateral-range-inputs:nth-child(3){
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transform: rotate(90deg);
 }
